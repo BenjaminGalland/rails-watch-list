@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>All your lists</h1>
+  <ul class="list-group">
+      <% @lists.each do |list|%>
+        <div class="btn">
+          <%= link_to list_path(list) do%>
+            <li class="list-group-item">
+              <% unless list.bookmarks.empty? %>
+                <img height="100px" src="<%=list.bookmarks[0].movie.poster_url%>" alt="">
+              <% end %>
+              <%= list.name %>
+            </li>
+          <% end %>
+        </div>
+      <% end %>
+  </ul>
+  <%= link_to "Add a new list", new_list_path, class: "mt-5 btn btn-primary" %>
+</div>
