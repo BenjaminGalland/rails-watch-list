@@ -4,9 +4,15 @@
       <% @lists.each do |list|%>
         <div class="btn">
           <%= link_to list_path(list) do%>
-            <li class="list-group-item">
-              <%= cl_image_tag "Studio-Ghibli-Porco-Rosso-screen-shot-2189849-wallhere.com_5_tzykwx", height: 300, width: 400, crop: :fill %>
-              <%= list.name %>
+            <li class="item">
+              <% if list.photo.attached? %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>')">
+                    <%= list.name %>
+                </div>
+                <%# <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                   <%= list.name %>
+              <% end %>
             </li>
           <% end %>
         </div>
