@@ -5,9 +5,7 @@
         <div class="btn">
           <%= link_to list_path(list) do%>
             <li class="list-group-item">
-              <% unless list.bookmarks.empty? %>
-                <img height="100px" src="<%=list.bookmarks[0].movie.poster_url%>" alt="">
-              <% end %>
+              <%= cl_image_tag "Studio-Ghibli-Porco-Rosso-screen-shot-2189849-wallhere.com_5_tzykwx", height: 300, width: 400, crop: :fill %>
               <%= list.name %>
             </li>
           <% end %>
